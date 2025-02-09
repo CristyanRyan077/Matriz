@@ -1,0 +1,79 @@
+Algoritmo "semnome"
+procedimento menuopcoes()
+inicio
+  escreval ("   MENU DE OPÇÕES")
+     escreval ("=====================")
+     escreval ("[1] Mostrar a matriz")
+     escreval ("[2] Diagonal principal")
+     escreval ("[3] Triangulo superior")
+     escreval ("[4] Triangulo inferior")
+     escreval ("[5] Sair")
+     escreva ("===== OPÇÃO: ")
+     leia (resp)
+
+fimprocedimento
+procedimento mostrarMatriz():inteiro
+inicio
+   para c1 <- 1 ate 4 faça
+      para c2 <- 1 ate 4 faça
+         escreva (m[c1,c2]:4)
+         escreva ("":2)
+      fimpara
+      escreval ()
+   fimpara
+   escreval ("")
+fimprocedimento
+procedimento DiagonalP()
+inicio
+   para c1 <- 1 ate 4 faça
+      para c2 <- 1 ate 4 faça
+         se c1 = c2 entao
+            escreva (m[c1,c2]:4)
+         senao
+            escreva ("":2)
+         fimse
+      fimpara
+      escreval ()
+   fimpara
+fimprocedimento
+Var
+c1,c2,opc,resp:inteiro
+m:vetor[1..4,1..4] de inteiro
+x:caractere
+
+
+Inicio
+   para c1 := 1 ate 4 faça
+      para c2 := 1 ate 4 faça
+         escreva ("Digite o valor para posição [",c1,",",c2,"] ")
+         leia (m[c1,c2])
+      fimpara
+   fimpara
+   limpatela
+         escreval ("             ")
+         escreval ("             ")
+         escreval ("             ")
+         repita
+          escreval ("   MENU DE OPÇÕES")
+          escreval ("=====================")
+          escreval ("[1] Mostrar a matriz")
+          escreval ("[2] Diagonal principal")
+          escreval ("[3] Triangulo superior")
+          escreval ("[4] Triangulo inferior")
+          escreval ("[5] Sair")
+          escreva ("===== OPÇÃO: ")
+          leia (resp)
+          se resp = 1 entao
+            limpatela
+            mostrarMatriz()
+          senao
+           se resp = 2 entao
+              limpatela
+              DiagonalP()
+           fimse
+          fimse
+         ate resp = 5
+   
+      
+   
+Fimalgoritmo
