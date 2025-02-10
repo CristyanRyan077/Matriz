@@ -1,4 +1,9 @@
 Algoritmo "semnome"
+Var
+   c1,c2,opc,resp:inteiro
+   m:vetor[1..4,1..4] de inteiro
+   x:caractere
+
 procedimento menuopcoes()
 inicio
   escreval ("   MENU DE OPÇÕES")
@@ -21,7 +26,7 @@ inicio
       fimpara
       escreval ()
    fimpara
-   escreval ("")
+   escreval ("    ")
 fimprocedimento
 procedimento DiagonalP()
 inicio
@@ -30,19 +35,49 @@ inicio
          se c1 = c2 entao
             escreva (m[c1,c2]:4)
          senao
-            escreva ("":2)
+            escreva ("    ")
          fimse
       fimpara
       escreval ()
    fimpara
+   escreval()
 fimprocedimento
-Var
-c1,c2,opc,resp:inteiro
-m:vetor[1..4,1..4] de inteiro
-x:caractere
+procedimento TriSup()
+var t:inteiro
+inicio
+   para c1 <- 1 ate 3 faça
+      para c2 <- (c1 + 1) ate 4 faça
+           se c2 > c1 entao
+         escreva (m[c1,c2]:4)
+      senao
+         escreva ("    ")
+      fimse
+      fimpara
+      escreval ()
+      para t <- 1 ate c1 faça
+         escreva ("    ")
+      fimpara
+   fimpara
+   escreval ()
+fimprocedimento
+
+procedimento TriInf()
+inicio
+   para c1 <- 2 ate 4 faça
+      para c2 <- 1 ate 4 faça
+      se c1 > c2 entao
+         escreva (m[c1,c2]:4)
+      senao
+         escreva ("    ")
+      fimse
+      fimpara
+      escreval ()
+   fimpara
+   escreval ()
+fimprocedimento
 
 
-Inicio
+inicio
    para c1 := 1 ate 4 faça
       para c2 := 1 ate 4 faça
          escreva ("Digite o valor para posição [",c1,",",c2,"] ")
@@ -63,15 +98,20 @@ Inicio
           escreval ("[5] Sair")
           escreva ("===== OPÇÃO: ")
           leia (resp)
-          se resp = 1 entao
-            limpatela
-            mostrarMatriz()
-          senao
-           se resp = 2 entao
-              limpatela
-              DiagonalP()
-           fimse
-          fimse
+          escolha resp
+             caso 1
+                limpatela
+                mostrarMatriz()
+             caso 2
+                limpatela
+                DiagonalP()
+             caso 3
+                limpatela
+                TriSup()
+             caso 4
+                limpatela
+                TriInf()
+             fimescolha
          ate resp = 5
    
       
